@@ -2,6 +2,7 @@
 " Inspired in:
 "  * https://github.com/amix/vimrc
 "  * https://github.com/lukaszkorecki/DotFiles/blob/master/vimrc
+"  * https://github.com/chrishunt/dot-files/blob/master/.vimrc
 
 """"""""""""""""""""""""
 "       General        "
@@ -15,11 +16,10 @@ set history=700
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
-filetype on
+filetype off
 
 " use spelling in git commit messages
 autocmd FileType gitcommit set spell
-
 
 """"""""""""""""""""""""""
 "       Interface        "
@@ -33,6 +33,12 @@ set ruler
 " highlight current line and add line numbers
 set cursorline
 set number
+
+" highlight the status bar when in insert mode
+if version >= 700
+  au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
+  au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
+endif
 
 " Configure backspace so it acts as it should act
 set whichwrap+=<,>,[,]
@@ -60,7 +66,6 @@ set hlsearch
 " Makes search act like search in modern browsers
 set incsearch
 
-
 """"""""""""""""""""""""
 "       Backups        "
 """"""""""""""""""""""""
@@ -69,20 +74,34 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-
 """""""""""""""""""""""""""""""""
 "       Fonts and colors        "
 """""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable
 
-" Colors
-let &t_Co=256
-set background=dark
-
 " nice colors for error messages
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
+" Colors
+set background=dark
+colorscheme base16-railscasts
+set t_Co=256
+
+highlight clear SignColumn
+highlight VertSplit    ctermbg=236
+highlight ColorColumn  ctermbg=237
+highlight LineNr       ctermbg=236 ctermfg=240
+highlight CursorLineNr ctermbg=236 ctermfg=240
+highlight CursorLine   ctermbg=236
+highlight StatusLineNC ctermbg=238 ctermfg=0
+highlight StatusLine   ctermbg=240 ctermfg=12
+highlight IncSearch    ctermbg=0   ctermfg=3
+highlight Search       ctermbg=0   ctermfg=9
+highlight Visual       ctermbg=3   ctermfg=0
+highlight Pmenu        ctermbg=240 ctermfg=12
+highlight PmenuSel     ctermbg=0   ctermfg=3
+highlight SpellBad     ctermbg=0   ctermfg=1
 
 """"""""""""""""""""""""""""""""
 "       Tabs and indent        "
@@ -94,7 +113,6 @@ set tabstop=2
 
 " Use spaces instead of tabs
 set expandtab
-
 
 """"""""""""""""""""""""""""
 "       Status line        "
@@ -115,7 +133,6 @@ set statusline+=\ %12.(%c:%l/%L%)
 
 " always show status line
 set laststatus=2
-
 
 """"""""""""""""""""""""""""""""""""""
 "       Programming languages        "
@@ -162,3 +179,41 @@ au BufNewFile,BufRead *tmux.conf set syntax=tmux
 
 " SCSS
 autocmd FileType scss setlocal iskeyword+=-,$,@
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+"""""""""""""""""""""""
+"       Vundle        "
+"""""""""""""""""""""""
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'kien/ctrlp.vim'
+Bundle 'rking/ag.vim'
+Bundle 'mattn/gist-vim'
+Bundle 'scrooloose/nerdtree'
+" Bundle 'tpope/vim-fugitive'
+" Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Bundle 'tpope/vim-rails.git'
+" vim-scripts repos
+" Bundle 'L9'
+" Bundle 'FuzzyFinder'
+" non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (ie. when working on your own plugin)
+" Bundle 'file:///Users/gmarik/path/to/plugin'
+" ...
+filetype plugin indent on     " required!
+
+""""""""""""""""""""""""""
+"       Shortcuts        "
+""""""""""""""""""""""""""
+let mapleader = ","
+nmap <leader>ne :NERDTree<cr>
