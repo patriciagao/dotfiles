@@ -16,7 +16,7 @@ set history=700
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
-filetype off
+"filetype off
 
 " use spelling in git commit messages
 autocmd FileType gitcommit set spell
@@ -57,7 +57,7 @@ endif
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
@@ -79,6 +79,7 @@ set noswapfile
 """""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable
+filetype off
 
 " nice colors for error messages
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -114,6 +115,7 @@ set tabstop=2
 " Use spaces instead of tabs
 set expandtab
 
+
 """"""""""""""""""""""""""""
 "       Status line        "
 """"""""""""""""""""""""""""
@@ -133,6 +135,7 @@ set statusline+=\ %12.(%c:%l/%L%)
 
 " always show status line
 set laststatus=2
+
 
 """"""""""""""""""""""""""""""""""""""
 "       Programming languages        "
@@ -180,6 +183,9 @@ au BufNewFile,BufRead *tmux.conf set syntax=tmux
 " SCSS
 autocmd FileType scss setlocal iskeyword+=-,$,@
 
+" coffeescript
+autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -188,7 +194,7 @@ call vundle#rc()
 """""""""""""""""""""""
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
@@ -198,6 +204,9 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'rking/ag.vim'
 Bundle 'mattn/gist-vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'MatchTag'
+Bundle 'kchmck/vim-coffee-script'
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -210,10 +219,16 @@ Bundle 'scrooloose/nerdtree'
 " git repos on your local machine (ie. when working on your own plugin)
 " Bundle 'file:///Users/gmarik/path/to/plugin'
 " ...
-filetype plugin indent on     " required!
+
+filetype plugin indent on
 
 """"""""""""""""""""""""""
 "       Shortcuts        "
 """"""""""""""""""""""""""
 let mapleader = ","
 nmap <leader>ne :NERDTree<cr>
+
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap {{     {
+inoremap {}     {}
