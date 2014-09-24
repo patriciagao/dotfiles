@@ -7,7 +7,8 @@ alias migrate='bundle exec rake db:migrate'
 
 # Git autocomplete: http://code-worrier.com/blog/autocomplete-git/
 if [ -f ~/.git-completion.bash ]; then
-    . ~/.git-completion.bash
+  . ~/.git-completion.bash
 fi
 
 source /opt/boxen/env.sh
+

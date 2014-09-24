@@ -95,7 +95,6 @@ syntax on
 " nice colors for error messages
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-
 """"""""""""""""""""""""""""""""
 "       Tabs and indent        "
 """"""""""""""""""""""""""""""""
@@ -177,6 +176,7 @@ autocmd FileType scss setlocal iskeyword+=-,$,@
 
 " coffeescript
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+
 
 """"""""""""""""""""""""""
 "       Shortcuts        "
