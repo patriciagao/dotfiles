@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/patricia/code/dashboard/.vagrant'
+let g:netrw_dirhist_2='/Users/patricia/code/survey/app/views/layouts'
+let g:netrw_dirhist_3='/Users/patricia/code/survey/app/views/survey/question'
+let g:netrw_dirhist_4='/Users/patricia/src/emtrics-core/lib/emtrics/models/question'
+let g:netrw_dirhist_5='/Users/patricia/src/emtrics-core/lib/emtrics/models/survey'
+let g:netrw_dirhist_6='/Users/patricia/src/emtrics-core/lib/emtrics/tasks'
+let g:netrw_dirhist_7='/Users/patricia/src/emtrics-core/lib/emtrics/models/question'
