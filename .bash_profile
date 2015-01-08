@@ -4,8 +4,7 @@ alias ber='bundle exec rspec'
 alias server='bundle exec rails s'
 alias console='bundle exec rails c'
 alias migrate='bundle exec rake db:migrate'
-alias elasticsearch='elasticsearch --config=/opt/boxen/homebrew/opt/elasticsearch/config/elasticsearch.yml'
-alias ls='ls -G'
+alias ls="ls -G" # color folders
 
 # Git autocomplete: http://code-worrier.com/blog/autocomplete-git/
 if [ -f ~/.git-completion.bash ]; then
@@ -13,3 +12,5 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 eval "$(rbenv init -)"
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

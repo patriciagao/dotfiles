@@ -21,6 +21,9 @@ filetype indent on
 " use spelling in git commit messages
 autocmd FileType gitcommit set spell
 
+"enable mouse scrolling
+set mouse=a
+
 """"""""""""""""""""""""
 "       Vundles        "
 """"""""""""""""""""""""
@@ -28,7 +31,6 @@ autocmd FileType gitcommit set spell
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
-
 
 """"""""""""""""""""""""""
 "       Interface        "
@@ -106,7 +108,6 @@ set tabstop=2
 " Use spaces instead of tabs
 set expandtab
 
-
 """"""""""""""""""""""""""""
 "       Status line        "
 """"""""""""""""""""""""""""
@@ -126,7 +127,6 @@ set statusline+=\ %12.(%c:%l/%L%)
 
 " always show status line
 set laststatus=2
-
 
 """"""""""""""""""""""""""""""""""""""
 "       Programming languages        "
@@ -177,7 +177,6 @@ autocmd FileType scss setlocal iskeyword+=-,$,@
 " coffeescript
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
-
 """"""""""""""""""""""""""
 "       Shortcuts        "
 """"""""""""""""""""""""""
@@ -190,7 +189,6 @@ inoremap {{     {
 inoremap {}     {}
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
 
 " The Silver Searcher
 if executable('ag')
