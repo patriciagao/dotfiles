@@ -20,14 +20,16 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'gagoar/StripWhiteSpaces'
-let g:trailertrash_blacklist = ['__Calendar', '^http:']
-
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'mattn/gist-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'MatchTag'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-haml'
+Plugin 'terryma/vim-expand-region'
+
+let g:trailertrash_blacklist = ['__Calendar', '^http:']
 
 call vundle#end()            " required
 filetype plugin indent on    " required

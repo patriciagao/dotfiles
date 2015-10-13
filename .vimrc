@@ -23,6 +23,7 @@ autocmd FileType gitcommit set spell
 
 "enable mouse scrolling
 set mouse=a
+set scrolloff=5
 
 """"""""""""""""""""""""
 "       Vundles        "
@@ -138,6 +139,10 @@ au BufNewFile,BufRead Capfile,Gemfile,Gemfile.lock,Guardfile,Rakefile,*.rake set
 " reject! and responds_to? are methods in ruby
 autocmd FileType ruby setlocal iskeyword+=!,?,@
 
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
 " make rspec stuff part of ruby syntax
 autocmd BufNewFile,BufRead *_spec.rb syn keyword ruby describe
       \ context
@@ -153,6 +158,9 @@ autocmd BufNewFile,BufRead *_spec.rb syn keyword ruby describe
       \ shared_context
       \ let
 
+" check syntax before saving
+autocmd FileType ruby map <F9> :w<CR>:!ruby -c %<CR>
+
 " Javascript
 " json & javascript
 au BufNewFile,BufRead  *.json set ft=json
@@ -167,6 +175,7 @@ au BufNewFile,BufRead *.js setlocal conceallevel=2
 
 " handlebars templates
 au BufNewFile,BufRead *.hb set ft=handlebars
+au BufNewFile,BufRead *.halmbars set ft=handlebars
 
 " tmux
 au BufNewFile,BufRead *tmux.conf set syntax=tmux
@@ -180,8 +189,20 @@ autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 """"""""""""""""""""""""""
 "       Shortcuts        "
 """"""""""""""""""""""""""
-let mapleader = ","
+let mapleader = "\<Space>"
+
+"Nerdtree
 nmap <leader>ne :NERDTree<cr>
+
+"Save file
+nnoremap <Leader>w :w<CR>
+
+"Visual mode
+nmap <Leader><Leader> V
+
+"Selection
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
